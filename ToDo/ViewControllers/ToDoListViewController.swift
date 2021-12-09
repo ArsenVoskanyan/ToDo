@@ -8,7 +8,9 @@
 import UIKit
 
 class ToDoListViewController: UIViewController {
-    var todos = [ToDo]()
+    var todos = ToDo.file { didSet {
+        ToDo.file = todos
+    }}
 
     @IBOutlet weak var tableView: UITableView! { didSet {
         tableView.dataSource = self
@@ -17,14 +19,16 @@ class ToDoListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let loadToDos = ToDo.file {
-            todos = loadToDos
-        } else {
-            todos = ToDo.loadSampleToDos
-        }
-        navigationItem.leftBarButtonItem = editButtonItem
+        //navigationItem.leftBarButtonItem = editButtonItem
     }
+
+    @IBAction func didTapEditBarButtonItem(_ sender: UIBarButtonItem) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        sender.title = tableView.isEditing ? "Done" : "Edit"
+    }
+
+    
+
 }
 
 extension ToDoListViewController: UITableViewDataSource, UITableViewDelegate {

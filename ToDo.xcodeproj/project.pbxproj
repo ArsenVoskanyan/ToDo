@@ -15,6 +15,7 @@
 		A9283C58275FD3CC00903238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9283C57275FD3CC00903238 /* Assets.xcassets */; };
 		A9283C5B275FD3CC00903238 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9283C59275FD3CC00903238 /* LaunchScreen.storyboard */; };
 		A9E0EC43276148140080735A /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E0EC42276148140080735A /* ToDo.swift */; };
+		A9F894A82762403900D11CC5 /* AddEditToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F894A72762403900D11CC5 /* AddEditToDoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A9283C5A275FD3CC00903238 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9283C5C275FD3CC00903238 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9E0EC42276148140080735A /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		A9F894A72762403900D11CC5 /* AddEditToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditToDoTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				A9208FF127613F0900456C43 /* ToDoListViewController.swift */,
+				A9F894A72762403900D11CC5 /* AddEditToDoTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				A9208FF227613F0900456C43 /* ToDoListViewController.swift in Sources */,
 				A9E0EC43276148140080735A /* ToDo.swift in Sources */,
 				A9283C4C275FD3CA00903238 /* AppDelegate.swift in Sources */,
+				A9F894A82762403900D11CC5 /* AddEditToDoTableViewController.swift in Sources */,
 				A9283C4E275FD3CA00903238 /* SceneDelegate.swift in Sources */,
 				A9283C56275FD3CA00903238 /* ToDo.xcdatamodeld in Sources */,
 			);
