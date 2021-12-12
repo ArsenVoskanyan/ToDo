@@ -27,7 +27,7 @@ struct ToDo: Equatable, Codable {
         guard let todosURL = urls.first
         else { fatalError() }
 
-        return todosURL.appendingPathComponent("toDos").appendingPathExtension("plist")
+        return todosURL.appendingPathComponent("todos").appendingPathExtension("plist")
     }()
 
     static var loadeSaveToDosFile: [ToDo] {
