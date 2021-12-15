@@ -21,6 +21,7 @@ class ToDoDetailTableViewController: UITableViewController {
         super.viewDidLoad()
 
         updateSaveButtonState()
+        updateDueDateLabel(date: dueDatePickerView.date)
     }
 
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
@@ -43,5 +44,12 @@ class ToDoDetailTableViewController: UITableViewController {
     @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
         isCompleteButton.isSelected.toggle()
     }
+
+    func updateDueDateLabel(date: Date) {
+        dueDateLabel.text = ToDo.dueDateFormatter.string(from: date)
+    }
     
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        updateDueDateLabel(date: sender.date)
+    }
 }

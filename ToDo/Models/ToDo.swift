@@ -14,6 +14,13 @@ struct ToDo: Equatable, Codable {
     var dueDate: Date
     var notes: String?
 
+    static let dueDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }()
+
     static var loadSampleToDos: [ToDo] {
         return [
             ToDo(title: "ToDo One", isComplete: false, dueDate: Date(), notes: "Notes1"),
