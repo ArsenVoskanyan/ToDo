@@ -76,12 +76,16 @@
                                                             <state key="selected" image="checkmark.circle.fill" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="isCompleteButtonTapped:" destination="xAk-9l-mGj" eventType="touchUpInside" id="UDt-QM-9jh"/>
+                                                            </connections>
                                                         </button>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3dd-EP-0sh">
                                                             <rect key="frame" x="31" y="0.0" width="343" height="34.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
+                                                                <action selector="returnPressed:" destination="xAk-9l-mGj" eventType="primaryActionTriggered" id="MJM-FQ-tsC"/>
                                                                 <action selector="textEditingChanged:" destination="xAk-9l-mGj" eventType="editingChanged" id="mhM-Jg-gBT"/>
                                                             </connections>
                                                         </textField>

@@ -35,4 +35,13 @@ class ToDoDetailTableViewController: UITableViewController {
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
+
+    @IBAction func returnPressed(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+
+    @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
+        isCompleteButton.isSelected.toggle()
+    }
+    
 }
