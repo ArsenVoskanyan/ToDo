@@ -8,8 +8,8 @@
 import UIKit
 
 class ToDoTableViewController: UITableViewController {
-    var todos = ToDo.loadeSaveToDosFile { didSet {
-        ToDo.loadeSaveToDosFile = todos
+    var todos = ToDo.todos { didSet {
+        ToDo.todos = todos
     }}
 
     override func viewDidLoad() {

@@ -15,6 +15,7 @@
 		A9283C5B275FD3CC00903238 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9283C59275FD3CC00903238 /* LaunchScreen.storyboard */; };
 		A9C5FA2127661D7A00AE693B /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C5FA2027661D7A00AE693B /* ToDo.swift */; };
 		A9C5FA2327661E9B00AE693B /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C5FA2227661E9B00AE693B /* ToDoTableViewController.swift */; };
+		A9E601B6276A233800924F11 /* ToDoDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E601B5276A233800924F11 /* ToDoDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A9283C5C275FD3CC00903238 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C5FA2027661D7A00AE693B /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		A9C5FA2227661E9B00AE693B /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		A9E601B5276A233800924F11 /* ToDoDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				A9C5FA2227661E9B00AE693B /* ToDoTableViewController.swift */,
+				A9E601B5276A233800924F11 /* ToDoDetailTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E601B6276A233800924F11 /* ToDoDetailTableViewController.swift in Sources */,
 				A9283C4C275FD3CA00903238 /* AppDelegate.swift in Sources */,
 				A9283C4E275FD3CA00903238 /* SceneDelegate.swift in Sources */,
 				A9283C56275FD3CA00903238 /* ToDo.xcdatamodeld in Sources */,

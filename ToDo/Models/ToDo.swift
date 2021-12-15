@@ -30,7 +30,7 @@ struct ToDo: Equatable, Codable {
         return todosURL.appendingPathComponent("todos").appendingPathExtension("plist")
     }()
 
-    static var loadeSaveToDosFile: [ToDo] {
+    static var todos: [ToDo] {
         get {
             guard let data = try? Data(contentsOf: todosURL)
             else { return loadSampleToDos}
