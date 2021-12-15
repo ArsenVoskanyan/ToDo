@@ -81,6 +81,9 @@
                                                             <rect key="frame" x="31" y="0.0" width="343" height="34.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="textEditingChanged:" destination="xAk-9l-mGj" eventType="editingChanged" id="mhM-Jg-gBT"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -176,12 +179,20 @@
                             <outlet property="delegate" destination="xAk-9l-mGj" id="EvS-zM-MFS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="NML-LW-Sci"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="NML-LW-Sci">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="voF-cR-aqX">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="xAk-9l-mGj" id="DuK-42-yFz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bft-bC-z4o"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="dueDateLabel" destination="JOT-1Q-mdU" id="NPI-XX-idn"/>
                         <outlet property="dueDatePickerView" destination="Pwn-3n-lyO" id="opT-1g-2MR"/>
                         <outlet property="isCompleteButton" destination="kGO-Xs-wUD" id="x1p-Ww-Zb8"/>
                         <outlet property="notesTextView" destination="XtM-fk-zYe" id="KEL-ah-SxZ"/>
+                        <outlet property="saveButton" destination="Bft-bC-z4o" id="lIo-SY-Tqc"/>
                         <outlet property="titleTextField" destination="3dd-EP-0sh" id="xjX-iQ-XBl"/>
                     </connections>
                 </tableViewController>

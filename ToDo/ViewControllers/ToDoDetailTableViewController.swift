@@ -14,9 +14,25 @@ class ToDoDetailTableViewController: UITableViewController {
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var dueDatePickerView: UIDatePicker!
     @IBOutlet weak var notesTextView: UITextView!
-    
+
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        updateSaveButtonState()
     }
 
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+
+    func updateSaveButtonState() {
+        let isValid = !(titleTextField.text?.isEmpty ?? true)
+        saveButton.isEnabled = isValid
+    }
+
+    @IBAction func textEditingChanged(_ sender: UITextField) {
+        updateSaveButtonState()
+    }
 }
