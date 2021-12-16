@@ -8,6 +8,11 @@
 import UIKit
 
 class ToDoDetailTableViewController: UITableViewController {
+    var isDatePickerHidden = true
+    let dateLabelIndexPath = IndexPath(row: 0, section: 1)
+    let datePickerIndexPath = IndexPath(row: 1, section: 1)
+    let notesIndexPath = IndexPath(row: 0, section: 2)
+
 
     @IBOutlet weak var isCompleteButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
@@ -19,7 +24,7 @@ class ToDoDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        dueDatePickerView.date = Date().addingTimeInterval(24*60*60)
         updateSaveButtonState()
         updateDueDateLabel(date: dueDatePickerView.date)
     }
@@ -51,5 +56,25 @@ class ToDoDetailTableViewController: UITableViewController {
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         updateDueDateLabel(date: sender.date)
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath {
+        case datePickerIndexPath where isDatePickerHidden:
+            return 0
+        case notesIndexPath:
+            return 200
+        default:
+            return UITableView.automaticDimension
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath == dateLabelIndexPath {
+            isDatePickerHidden.toggle()
+            dueDateLabel.textColor = .black
+            updateDueDateLabel(date: dueDatePickerView.date)
+            tableView.reloadData()
+        }
     }
 }
