@@ -13,7 +13,6 @@ class ToDoDetailTableViewController: UITableViewController {
     let datePickerIndexPath = IndexPath(row: 1, section: 1)
     let notesIndexPath = IndexPath(row: 0, section: 2)
 
-
     @IBOutlet weak var isCompleteButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dueDateLabel: UILabel!
