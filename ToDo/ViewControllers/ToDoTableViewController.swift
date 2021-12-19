@@ -57,6 +57,18 @@ class ToDoTableViewController: UITableViewController {
 }
 
 extension ToDoTableViewController: ToDoDetailTableViewControllerDelegate {
+    func didTapDone(todo: ToDo) {
+        if let index = todos.firstIndex(of: todo) {
+            todos[index] = todo
+            let indexPath = IndexPath(row: index, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else {
+            todos.insert(todo, at: 0)
+            let indexPath = IndexPath(row: 0, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
+
     
 }
 

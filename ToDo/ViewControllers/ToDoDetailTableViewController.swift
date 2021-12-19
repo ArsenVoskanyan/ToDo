@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ToDoDetailTableViewControllerDelegate: AnyObject {
-
+    func didTapDone(todo: ToDo)
 }
 
 class ToDoDetailTableViewController: UITableViewController {
@@ -40,9 +40,21 @@ class ToDoDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dueDatePickerView.date = Date().addingTimeInterval(24*60*60)
+
+        configure()
         updateSaveButtonState()
         updateDueDateLabel(date: dueDatePickerView.date)
+    }
+
+    func configure() {
+        if let todo = todo {
+            titleTextField.text = todo.title
+            isCompleteButton.isSelected = todo.isComplete
+            dueDatePickerView.date = todo.dueDate
+            notesTextView.text = todo.notes
+        } else {
+            dueDatePickerView.date = Date().addingTimeInterval(24*60*60)
+        }
     }
 
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
