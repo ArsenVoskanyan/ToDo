@@ -7,12 +7,28 @@
 
 import UIKit
 
+protocol ToDoDetailTableViewControllerDelegate: AnyObject {
+
+}
+
 class ToDoDetailTableViewController: UITableViewController {
+    init?(coder: NSCoder, delegate: ToDoDetailTableViewControllerDelegate?, todo: ToDo?) {
+        self.todo = todo
+        self.delegate = delegate
+        super .init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    weak var delegate: ToDoDetailTableViewControllerDelegate?
+    var todo: ToDo?
+
     var isDatePickerHidden = true
     let dateLabelIndexPath = IndexPath(row: 0, section: 1)
     let datePickerIndexPath = IndexPath(row: 1, section: 1)
     let notesIndexPath = IndexPath(row: 0, section: 2)
-
 
     @IBOutlet weak var isCompleteButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!

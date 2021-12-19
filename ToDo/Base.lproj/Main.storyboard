@@ -216,7 +216,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="xAk-9l-mGj" kind="relationship" relationship="rootViewController" id="W1b-qG-fVA"/>
+                        <segue destination="xAk-9l-mGj" kind="relationship" relationship="rootViewController" destinationCreationSelector="presentAddEditToDo:sender:" id="W1b-qG-fVA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMv-SB-nhr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
