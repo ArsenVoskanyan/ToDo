@@ -12,8 +12,8 @@ protocol ToDoDetailTableViewControllerDelegate: AnyObject {
 }
 
 class ToDoDetailTableViewController: UITableViewController {
-    init?(coder: NSCoder, delegate: ToDoDetailTableViewControllerDelegate?, todo: ToDo?) {
-        self.todo = todo
+    init?(coder: NSCoder, delegate: ToDoDetailTableViewControllerDelegate?, initialToDo: ToDo?) {
+        self.initialToDo = initialToDo
         self.delegate = delegate
         super .init(coder: coder)
     }
@@ -23,7 +23,21 @@ class ToDoDetailTableViewController: UITableViewController {
     }
     
     weak var delegate: ToDoDetailTableViewControllerDelegate?
-    var todo: ToDo?
+    var initialToDo: ToDo?
+
+    var todo: ToDo? {
+        guard let title = titleTextField.text,
+              let notes = notesTextView.text
+        else { fatalError() }
+
+        return ToDo(
+            id: initialToDo?.id ?? UUID().uuidString,
+            title: title,
+            isComplete: isCompleteButton.isSelected,
+            dueDate: dueDatePickerView.date,
+            notes: notes
+        )
+    }
 
     var isDatePickerHidden = true
     let dateLabelIndexPath = IndexPath(row: 0, section: 1)
@@ -47,7 +61,7 @@ class ToDoDetailTableViewController: UITableViewController {
     }
 
     func configure() {
-        if let todo = todo {
+        if let todo = initialToDo {
             titleTextField.text = todo.title
             isCompleteButton.isSelected = todo.isComplete
             dueDatePickerView.date = todo.dueDate
@@ -84,6 +98,13 @@ class ToDoDetailTableViewController: UITableViewController {
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         updateDueDateLabel(date: sender.date)
+    }
+
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let todo = todo else { return }
+
+        delegate?.didTapDone(todo: todo)
+        dismiss(animated: true, completion: nil)
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

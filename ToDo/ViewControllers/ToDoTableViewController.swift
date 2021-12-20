@@ -21,9 +21,9 @@ class ToDoTableViewController: UITableViewController {
     @IBSegueAction func presentAddEditToDo(_ coder: NSCoder, sender: Any?) -> ToDoDetailTableViewController? {
         if let cell = sender as? UITableViewCell,
            let indexPath = tableView.indexPath(for: cell) {
-            return ToDoDetailTableViewController(coder: coder, delegate: self, todo: todos[indexPath.row])
+            return ToDoDetailTableViewController(coder: coder, delegate: self, initialToDo: todos[indexPath.row])
         } else {
-            return ToDoDetailTableViewController(coder: coder, delegate: self, todo: nil)
+            return ToDoDetailTableViewController(coder: coder, delegate: self, initialToDo: nil)
         }
     }
     

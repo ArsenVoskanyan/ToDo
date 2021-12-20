@@ -192,7 +192,11 @@
                                 <action selector="cancelButtonTapped:" destination="xAk-9l-mGj" id="DuK-42-yFz"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bft-bC-z4o"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bft-bC-z4o">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="xAk-9l-mGj" id="QSZ-06-mNL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dueDateLabel" destination="JOT-1Q-mdU" id="NPI-XX-idn"/>
