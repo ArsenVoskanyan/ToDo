@@ -8,7 +8,7 @@
 import Foundation
 
 struct ToDo: Equatable, Codable {
-    let id = UUID()
+    let id: String
     var title: String
     var isComplete: Bool
     var dueDate: Date
@@ -23,9 +23,9 @@ struct ToDo: Equatable, Codable {
 
     static var loadSampleToDos: [ToDo] {
         return [
-            ToDo(title: "ToDo One", isComplete: false, dueDate: Date(), notes: "Notes1"),
-            ToDo(title: "ToDo Two", isComplete: false, dueDate: Date(), notes: "Notes2"),
-            ToDo(title: "ToDo Three", isComplete: false, dueDate: Date(), notes: "Notes3")
+            ToDo(id: UUID().uuidString, title: "ToDo One", isComplete: false, dueDate: Date(), notes: "Notes1"),
+            ToDo(id: UUID().uuidString, title: "ToDo Two", isComplete: false, dueDate: Date(), notes: "Notes2"),
+            ToDo(id: UUID().uuidString, title: "ToDo Three", isComplete: false, dueDate: Date(), notes: "Notes3")
         ]
     }
 

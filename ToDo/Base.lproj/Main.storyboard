@@ -46,7 +46,7 @@
             </objects>
             <point key="canvasLocation" x="1075.3623188405797" y="19.419642857142858"/>
         </scene>
-        <!--Root View Controller-->
+        <!--To-Do-->
         <scene sceneID="2Lr-19-OKZ">
             <objects>
                 <tableViewController id="xAk-9l-mGj" customClass="ToDoDetailTableViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
@@ -186,13 +186,17 @@
                             <outlet property="delegate" destination="xAk-9l-mGj" id="EvS-zM-MFS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="NML-LW-Sci">
+                    <navigationItem key="navigationItem" title="To-Do" id="NML-LW-Sci">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="voF-cR-aqX">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="xAk-9l-mGj" id="DuK-42-yFz"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bft-bC-z4o"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bft-bC-z4o">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="xAk-9l-mGj" id="QSZ-06-mNL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dueDateLabel" destination="JOT-1Q-mdU" id="NPI-XX-idn"/>
@@ -216,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="xAk-9l-mGj" kind="relationship" relationship="rootViewController" id="W1b-qG-fVA"/>
+                        <segue destination="xAk-9l-mGj" kind="relationship" relationship="rootViewController" destinationCreationSelector="presentAddEditToDo:sender:" id="W1b-qG-fVA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMv-SB-nhr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

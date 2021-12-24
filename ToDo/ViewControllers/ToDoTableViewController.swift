@@ -18,6 +18,16 @@ class ToDoTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
     }
 
+    @IBSegueAction func presentAddEditToDo(_ coder: NSCoder, sender: Any?) -> ToDoDetailTableViewController? {
+        if let cell = sender as? UITableViewCell,
+           let indexPath = tableView.indexPath(for: cell) {
+            return ToDoDetailTableViewController(coder: coder, delegate: self, initialToDo: todos[indexPath.row])
+        } else {
+            return ToDoDetailTableViewController(coder: coder, delegate: self, initialToDo: nil)
+        }
+    }
+    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
@@ -44,5 +54,21 @@ class ToDoTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension ToDoTableViewController: ToDoDetailTableViewControllerDelegate {
+    func didTapDone(todo: ToDo) {
+        if let index = todos.firstIndex(of: todo) {
+            todos[index] = todo
+            let indexPath = IndexPath(row: index, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else {
+            todos.insert(todo, at: 0)
+            let indexPath = IndexPath(row: 0, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
+
+    
 }
 
