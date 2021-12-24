@@ -16,14 +16,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ToDoCellId" id="H0h-3w-A0w">
-                                <rect key="frame" x="0.0" y="32" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ToDoCellId" id="H0h-3w-A0w" customClass="ToDoCell" customModule="ToDo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="32" width="414" height="49.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H0h-3w-A0w" id="vMU-9X-ukY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rdJ-98-oyq">
+                                            <rect key="frame" x="20" y="11" width="374" height="27.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUH-9k-gyS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="28" height="27.5"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="circle" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                    </state>
+                                                    <state key="selected" image="checkmark.circle.fill" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="completedButtonTapped:" destination="H0h-3w-A0w" eventType="touchUpInside" id="rhd-O3-JS5"/>
+                                                        <action selector="isCompleteButtonTapped:" destination="xAk-9l-mGj" eventType="touchUpInside" id="wWV-El-lqM"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4N-f1-p77">
+                                                    <rect key="frame" x="31" y="0.0" width="343" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rdJ-98-oyq" firstAttribute="top" secondItem="vMU-9X-ukY" secondAttribute="topMargin" id="OI4-xY-4Rc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rdJ-98-oyq" secondAttribute="trailing" id="PvP-bW-Ex8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rdJ-98-oyq" secondAttribute="bottom" id="bsX-c6-0CJ"/>
+                                        <constraint firstItem="rdJ-98-oyq" firstAttribute="leading" secondItem="vMU-9X-ukY" secondAttribute="leadingMargin" id="mXA-Jh-jSy"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompleteButton" destination="HUH-9k-gyS" id="3VX-rv-kGn"/>
+                                    <outlet property="titleLabel" destination="l4N-f1-p77" id="cNb-IX-B7U"/>
                                     <segue destination="Gl1-sx-f3n" kind="presentation" id="ZOm-IW-QhU"/>
                                 </connections>
                             </tableViewCell>
