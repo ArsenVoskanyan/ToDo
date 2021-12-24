@@ -33,9 +33,13 @@ class ToDoTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellId", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellId", for: indexPath)
+                as? ToDoCell
+        else { fatalError() }
+
         let todo = todos[indexPath.row]
-        cell.textLabel?.text = todo.title
+        cell.configure(todo: todo)
+        cell.delegate = self
         return cell
     }
 
@@ -69,6 +73,14 @@ extension ToDoTableViewController: ToDoDetailTableViewControllerDelegate {
         }
     }
 
-    
+}
+
+extension ToDoTableViewController: ToDoCellDelegate {
+    func checkmarkTapped(cell: ToDoCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            todos[indexPath.row].isComplete.toggle()
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
 }
 

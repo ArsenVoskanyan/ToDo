@@ -104,7 +104,7 @@ class ToDoDetailTableViewController: UITableViewController {
         guard let todo = todo else { return }
 
         delegate?.didTapDone(todo: todo)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
